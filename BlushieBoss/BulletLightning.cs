@@ -10,7 +10,7 @@ namespace Bluemagic.BlushieBoss
     public class BulletLightning : BulletBounce
     {
         public BulletLightning(Vector2 position, Vector2 velocity)
-            : base(position, velocity, 2, 16f, BlushieBoss.BulletPurpleTexture)
+            : base(position, velocity, 2, 16f, BlushieBoss.BulletPurpleTexture.Value)
         {
         }
 

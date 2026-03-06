@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Audio;
 using Terraria.Chat;
@@ -61,27 +62,27 @@ namespace Bluemagic.BlushieBoss
         internal static Vector2 Phase3Data4;
 
         private static int[] types = new int[6];
-        internal static Texture2D BulletWhiteTexture;
-        internal static Texture2D BulletGoldTexture;
-        internal static Texture2D BulletGoldLargeTexture;
-        internal static Texture2D BulletStarTexture;
-        internal static Texture2D BulletPurpleTexture;
-        internal static Texture2D BulletBlackTexture;
-        internal static Texture2D BulletBlueTexture;
-        internal static Texture2D BulletBlueLargeTexture;
-        internal static Texture2D BulletBlueSmallTexture;
-        internal static Texture2D BulletBoxBlueTexture;
-        internal static Texture2D BulletFireLargeTexture;
-        internal static Texture2D BulletFireTexture;
-        internal static Texture2D[] BulletColorTextures;
-        internal static Texture2D BulletLightTexture;
-        internal static Texture2D BulletDragonTexture;
-        internal static Texture2D BulletDragonBreathTexture;
-        internal static Texture2D BulletSkullTexture;
-        internal static Texture2D BulletBoneTexture;
-        internal static Texture2D CrystalStarTexture;
-        internal static Texture2D BulletDragonLargeTexture;
-        internal static Texture2D BulletDragonDiamondTexture;
+        internal static Asset<Texture2D> BulletWhiteTexture;
+        internal static Asset<Texture2D> BulletGoldTexture;
+        internal static Asset<Texture2D> BulletGoldLargeTexture;
+        internal static Asset<Texture2D> BulletStarTexture;
+        internal static Asset<Texture2D> BulletPurpleTexture;
+        internal static Asset<Texture2D> BulletBlackTexture;
+        internal static Asset<Texture2D> BulletBlueTexture;
+        internal static Asset<Texture2D> BulletBlueLargeTexture;
+        internal static Asset<Texture2D> BulletBlueSmallTexture;
+        internal static Asset<Texture2D> BulletBoxBlueTexture;
+        internal static Asset<Texture2D> BulletFireLargeTexture;
+        internal static Asset<Texture2D> BulletFireTexture;
+        internal static Asset<Texture2D>[] BulletColorTextures;
+        internal static Asset<Texture2D> BulletLightTexture;
+        internal static Asset<Texture2D> BulletDragonTexture;
+        internal static Asset<Texture2D> BulletDragonBreathTexture;
+        internal static Asset<Texture2D> BulletSkullTexture;
+        internal static Asset<Texture2D> BulletBoneTexture;
+        internal static Asset<Texture2D> CrystalStarTexture;
+        internal static Asset<Texture2D> BulletDragonLargeTexture;
+        internal static Asset<Texture2D> BulletDragonDiamondTexture;
 
         public static bool Active
         {
@@ -121,33 +122,33 @@ namespace Bluemagic.BlushieBoss
             types[3] = Bluemagic.Instance.Find<ModNPC>("BlushiemagicL").Type;
             types[4] = Bluemagic.Instance.Find<ModNPC>("BlushiemagicM").Type;
             types[5] = Bluemagic.Instance.Find<ModNPC>("BlushiemagicJ").Type;
-            BulletWhiteTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletWhite").Value;
-            BulletGoldTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletGold").Value;
-            BulletGoldLargeTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletGoldLarge").Value;
-            BulletStarTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/Star").Value;
-            BulletPurpleTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/LightningOrb").Value;
-            BulletBlackTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlack").Value;
-            BulletBlueTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlue").Value;
-            BulletBlueLargeTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlueLarge").Value;
-            BulletBlueSmallTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlueSmall").Value;
-            BulletBoxBlueTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBoxBlue").Value;
-            BulletFireLargeTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletFireLarge").Value;
-            BulletFireTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletFire").Value;
-            BulletColorTextures = new Texture2D[6];
-            BulletColorTextures[0] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletRed").Value;
-            BulletColorTextures[1] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletOrange").Value;
+            BulletWhiteTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletWhite");
+            BulletGoldTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletGold");
+            BulletGoldLargeTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletGoldLarge");
+            BulletStarTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/Star");
+            BulletPurpleTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/LightningOrb");
+            BulletBlackTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlack");
+            BulletBlueTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlue");
+            BulletBlueLargeTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlueLarge");
+            BulletBlueSmallTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlueSmall");
+            BulletBoxBlueTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBoxBlue");
+            BulletFireLargeTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletFireLarge");
+            BulletFireTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletFire");
+            BulletColorTextures = new Asset<Texture2D>[6];
+            BulletColorTextures[0] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletRed");
+            BulletColorTextures[1] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletOrange");
             BulletColorTextures[2] = BulletGoldTexture;
-            BulletColorTextures[3] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletGreenLight").Value;
-            BulletColorTextures[4] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlueLight").Value;
-            BulletColorTextures[5] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletPurple").Value;
-            BulletLightTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletLight").Value;
-            BulletDragonTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletDragon").Value;
-            BulletDragonBreathTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletDragonBreath").Value;
-            BulletSkullTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletSkull").Value;
-            BulletBoneTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBone").Value;
-            BulletDragonLargeTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletDragonLarge").Value;
-            BulletDragonDiamondTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletDragonDiamond").Value;
-            CrystalStarTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/CrystalStar").Value;
+            BulletColorTextures[3] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletGreenLight");
+            BulletColorTextures[4] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlueLight");
+            BulletColorTextures[5] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletPurple");
+            BulletLightTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletLight");
+            BulletDragonTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletDragon");
+            BulletDragonBreathTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletDragonBreath");
+            BulletSkullTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletSkull");
+            BulletBoneTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBone");
+            BulletDragonLargeTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletDragonLarge");
+            BulletDragonDiamondTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletDragonDiamond");
+            CrystalStarTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/CrystalStar");
         }
 
         internal static void Unload()
@@ -2092,7 +2093,7 @@ namespace Bluemagic.BlushieBoss
             }
             foreach (Vector2 star in crystalStars)
             {
-                Main.spriteBatch.Draw(CrystalStarTexture, star - new Vector2(32f) - Main.screenPosition, Color.White);
+                Main.spriteBatch.Draw(CrystalStarTexture.Value, star - new Vector2(32f) - Main.screenPosition, Color.White);
             }
         }
     }

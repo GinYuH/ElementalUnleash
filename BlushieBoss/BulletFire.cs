@@ -10,7 +10,7 @@ namespace Bluemagic.BlushieBoss
     public class BulletFire : BulletSimple
     {
         public BulletFire(Vector2 position, Vector2 velocity)
-            : base(position, velocity, 16f, BlushieBoss.BulletFireTexture)
+            : base(position, velocity, 16f, BlushieBoss.BulletFireTexture.Value)
         {
         }
 

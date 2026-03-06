@@ -13,7 +13,7 @@ namespace Bluemagic.BlushieBoss
         public float BombDamageMult;
 
         public BulletFireBomb(Vector2 position, int time, float damageMult = 1f)
-            : base(position, 32f, BlushieBoss.BulletFireLargeTexture)
+            : base(position, 32f, BlushieBoss.BulletFireLargeTexture.Value)
         {
             this.Time = time;
             this.BombDamageMult = damageMult;
