@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 
 namespace Bluemagic.BlushieBoss
 {
@@ -18,7 +19,7 @@ namespace Bluemagic.BlushieBoss
             base.Update();
             for (int k = 0; k < 0; k++)
             {
-                int dust = Dust.NewDust(Position - new Vector2(Size), 32, 32, 6, 0f, 0f, 0, default(Color), 4f);
+                int dust = Dust.NewDust(Position - new Vector2(Size), 32, 32, DustID.Torch, 0f, 0f, 0, default(Color), 4f);
                 Main.dust[dust].noGravity = true;
                 Main.dust[dust].velocity *= 2f;
                 Main.dust[dust].velocity += Velocity;

@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.Chat;
+using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace Bluemagic.BlushieBoss
 {
@@ -110,39 +115,39 @@ namespace Bluemagic.BlushieBoss
 
         internal static void Load()
         {
-            types[0] = Bluemagic.Instance.NPCType("Blushiemagic");
-            types[1] = Bluemagic.Instance.NPCType("BlushiemagicK");
-            types[2] = Bluemagic.Instance.NPCType("BlushiemagicA");
-            types[3] = Bluemagic.Instance.NPCType("BlushiemagicL");
-            types[4] = Bluemagic.Instance.NPCType("BlushiemagicM");
-            types[5] = Bluemagic.Instance.NPCType("BlushiemagicJ");
-            BulletWhiteTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletWhite");
-            BulletGoldTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletGold");
-            BulletGoldLargeTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletGoldLarge");
-            BulletStarTexture = Bluemagic.Instance.GetTexture("BlushieBoss/Star");
-            BulletPurpleTexture = Bluemagic.Instance.GetTexture("BlushieBoss/LightningOrb");
-            BulletBlackTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletBlack");
-            BulletBlueTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletBlue");
-            BulletBlueLargeTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletBlueLarge");
-            BulletBlueSmallTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletBlueSmall");
-            BulletBoxBlueTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletBoxBlue");
-            BulletFireLargeTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletFireLarge");
-            BulletFireTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletFire");
+            types[0] = Bluemagic.Instance.Find<ModNPC>("Blushiemagic").Type;
+            types[1] = Bluemagic.Instance.Find<ModNPC>("BlushiemagicK").Type;
+            types[2] = Bluemagic.Instance.Find<ModNPC>("BlushiemagicA").Type;
+            types[3] = Bluemagic.Instance.Find<ModNPC>("BlushiemagicL").Type;
+            types[4] = Bluemagic.Instance.Find<ModNPC>("BlushiemagicM").Type;
+            types[5] = Bluemagic.Instance.Find<ModNPC>("BlushiemagicJ").Type;
+            BulletWhiteTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletWhite").Value;
+            BulletGoldTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletGold").Value;
+            BulletGoldLargeTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletGoldLarge").Value;
+            BulletStarTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/Star").Value;
+            BulletPurpleTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/LightningOrb").Value;
+            BulletBlackTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlack").Value;
+            BulletBlueTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlue").Value;
+            BulletBlueLargeTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlueLarge").Value;
+            BulletBlueSmallTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlueSmall").Value;
+            BulletBoxBlueTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBoxBlue").Value;
+            BulletFireLargeTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletFireLarge").Value;
+            BulletFireTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletFire").Value;
             BulletColorTextures = new Texture2D[6];
-            BulletColorTextures[0] = Bluemagic.Instance.GetTexture("BlushieBoss/BulletRed");
-            BulletColorTextures[1] = Bluemagic.Instance.GetTexture("BlushieBoss/BulletOrange");
+            BulletColorTextures[0] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletRed").Value;
+            BulletColorTextures[1] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletOrange").Value;
             BulletColorTextures[2] = BulletGoldTexture;
-            BulletColorTextures[3] = Bluemagic.Instance.GetTexture("BlushieBoss/BulletGreenLight");
-            BulletColorTextures[4] = Bluemagic.Instance.GetTexture("BlushieBoss/BulletBlueLight");
-            BulletColorTextures[5] = Bluemagic.Instance.GetTexture("BlushieBoss/BulletPurple");
-            BulletLightTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletLight");
-            BulletDragonTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletDragon");
-            BulletDragonBreathTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletDragonBreath");
-            BulletSkullTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletSkull");
-            BulletBoneTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletBone");
-            BulletDragonLargeTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletDragonLarge");
-            BulletDragonDiamondTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BulletDragonDiamond");
-            CrystalStarTexture = Bluemagic.Instance.GetTexture("BlushieBoss/CrystalStar");
+            BulletColorTextures[3] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletGreenLight").Value;
+            BulletColorTextures[4] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBlueLight").Value;
+            BulletColorTextures[5] = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletPurple").Value;
+            BulletLightTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletLight").Value;
+            BulletDragonTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletDragon").Value;
+            BulletDragonBreathTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletDragonBreath").Value;
+            BulletSkullTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletSkull").Value;
+            BulletBoneTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletBone").Value;
+            BulletDragonLargeTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletDragonLarge").Value;
+            BulletDragonDiamondTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BulletDragonDiamond").Value;
+            CrystalStarTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/CrystalStar").Value;
         }
 
         internal static void Unload()
@@ -198,7 +203,7 @@ namespace Bluemagic.BlushieBoss
                     anyBlushie = true;
                 }
             }
-            if (!Active && index[0] > -1 && Main.netMode != 1)
+            if (!Active && index[0] > -1 && Main.netMode != NetmodeID.MultiplayerClient)
             {
                 Initialize();
             }
@@ -264,7 +269,7 @@ namespace Bluemagic.BlushieBoss
                     if (player.Hitbox.Intersects(new Rectangle((int)crystalStars[k].X - 32, (int)crystalStars[k].Y - 32, 64, 64)))
                     {
                         crystalStars.RemoveAt(k);
-                        Main.PlaySound(SoundID.Item25);
+                        SoundEngine.PlaySound(SoundID.Item25);
                         k--;
                     }
                 }
@@ -280,7 +285,7 @@ namespace Bluemagic.BlushieBoss
             }
             if (allDead)
             {
-                if (Main.netMode != 1 && Phase == 1)
+                if (Main.netMode != NetmodeID.MultiplayerClient && Phase == 1)
                 {
                     BlushieTalk("Done already? Well, I hope we can fight again soon!");
                 }
@@ -370,7 +375,7 @@ namespace Bluemagic.BlushieBoss
         private static void Phase1()
         {
             NPC npc = Main.npc[index[0]];
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 bool flag = false;
                 for (int k = 0; k < 255; k++)
@@ -416,7 +421,7 @@ namespace Bluemagic.BlushieBoss
             }
             npc.Center = Origin + new Vector2(0f, 16f * (float)Math.Sin(Timer / 60f));
             npc.velocity = Vector2.Zero;
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 if (Timer >= 600 && Timer <= 1200 && Timer % 30 == 0)
                 {
@@ -491,7 +496,7 @@ namespace Bluemagic.BlushieBoss
         {
             Phase = 2;
             Timer = 0;
-            index[4] = NPC.NewNPC((int)Origin.X, (int)Origin.Y, types[4]);
+            index[4] = NPC.NewNPC(new EntitySource_SpawnNPC(), (int)Origin.X, (int)Origin.Y, types[4]);
             Main.npc[index[4]].Center = Origin;
             BlushieC = Main.rand.Next(10) == 0;
         }
@@ -499,7 +504,7 @@ namespace Bluemagic.BlushieBoss
         internal static void Phase2()
         {
             NPC megan = Main.npc[index[4]];
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (Timer == 1)
                 {
@@ -515,7 +520,7 @@ namespace Bluemagic.BlushieBoss
                     int y = (int)megan.Bottom.Y;
                     for (int k = 1; k <= 3; k++)
                     {
-                        index[k] = NPC.NewNPC(x, y, types[k], index[4]);
+                        index[k] = NPC.NewNPC(new EntitySource_SpawnNPC(), x, y, types[k], index[4]);
                     }
                     PosK = Vector2.Zero;
                     PosA = Vector2.Zero;
@@ -558,7 +563,7 @@ namespace Bluemagic.BlushieBoss
             NPC kylie = index[1] > -1 ? Main.npc[index[1]] : null;
             NPC anna = index[2] > -1 ? Main.npc[index[2]] : null;
             NPC luna = index[3] > -1 ? Main.npc[index[3]] : null;
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (kylie != null && kylie.localAI[1] == 0f && (ShieldBuff(kylie) || ShieldBuff(anna) || ShieldBuff(luna)))
                 {
@@ -644,7 +649,7 @@ namespace Bluemagic.BlushieBoss
             {
                 luna.Center = PosL;
             }
-            if (Main.netMode != 2 && Timer >= 600)
+            if (Main.netMode != NetmodeID.Server && Timer >= 600)
             {
                 if (kylie != null)
                 {
@@ -793,7 +798,7 @@ namespace Bluemagic.BlushieBoss
                 }
                 if (timerA == 1680)
                 {
-                    Main.PlaySound(29, -1, -1, 104);
+                    SoundEngine.PlaySound(SoundID.Zombie104);
                 }
                 if (timerA >= 1680 && timerA < 1740)
                 {
@@ -958,28 +963,28 @@ namespace Bluemagic.BlushieBoss
                     }
                 }
             }
-            Item.NewItem((int)Origin.X, (int)(Origin.Y + ArenaSize * 0.3f), 0, 0, Bluemagic.Instance.ItemType("BlushieCheckpoint"));
+            Item.NewItem(new EntitySource_Misc(""), (int)Origin.X, (int)(Origin.Y + ArenaSize * 0.3f), 0, 0, Bluemagic.Instance.Find<ModItem>("BlushieCheckpoint").Type);
         }
 
         internal static void Phase3()
         {
             NPC megan = Main.npc[index[4]];
             megan.Center = Origin + new Vector2(0f, 16f * (float)Math.Sin((Timer - 480f) / 60f));
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 if (Timer == 840)
                 {
-                    Main.PlaySound(29, -1, -1, 92, 1f, 0f);
+                    SoundEngine.PlaySound(SoundID.Zombie92);
                 }
                 else if (Timer == 960)
                 {
-                    Main.PlaySound(29, -1, -1, 104);
+                    SoundEngine.PlaySound(SoundID.Zombie104);
                 }
                 if (Timer >= 600 && Timer < 780)
                 {
                     for (int k = 0; k < 5; k++)
                     {
-                        int dust = Dust.NewDust(SkullPos - new Vector2(80f, 80f), 160, 160, Bluemagic.Instance.DustType("Smoke"), 0f, 0f, 0, Color.Black);
+                        int dust = Dust.NewDust(SkullPos - new Vector2(80f, 80f), 160, 160, Bluemagic.Instance.Find<ModDust>("Smoke").Type, 0f, 0f, 0, Color.Black);
                         Main.dust[dust].scale = 2.5f;
                         Main.dust[dust].noLight = true;
                     }
@@ -988,10 +993,10 @@ namespace Bluemagic.BlushieBoss
                 {
                     for (int k = 0; k < 1; k++)
                     {
-                        int dust = Dust.NewDust(SkullPos - new Vector2(80f, 80f) + new Vector2(26f, 58f), 36, 16, Bluemagic.Instance.DustType("Smoke"), 0f, 0f, 0, Color.Black);
+                        int dust = Dust.NewDust(SkullPos - new Vector2(80f, 80f) + new Vector2(26f, 58f), 36, 16, Bluemagic.Instance.Find<ModDust>("Smoke").Type, 0f, 0f, 0, Color.Black);
                         Main.dust[dust].scale = 2.5f;
                         Main.dust[dust].noLight = true;
-                        dust = Dust.NewDust(SkullPos - new Vector2(80f, 80f) + new Vector2(98f, 58f), 36, 16, Bluemagic.Instance.DustType("Smoke"), 0f, 0f, 0, Color.Black);
+                        dust = Dust.NewDust(SkullPos - new Vector2(80f, 80f) + new Vector2(98f, 58f), 36, 16, Bluemagic.Instance.Find<ModDust>("Smoke").Type, 0f, 0f, 0, Color.Black);
                         Main.dust[dust].scale = 2.5f;
                         Main.dust[dust].noLight = true;
                     }
@@ -1000,13 +1005,13 @@ namespace Bluemagic.BlushieBoss
                 {
                     for (int k = 0; k < 300; k++)
                     {
-                        int dust = Dust.NewDust(SkullPos - new Vector2(80f, 80f), 160, 160, Bluemagic.Instance.DustType("Smoke"), 0f, 0f, 0, Color.Black);
+                        int dust = Dust.NewDust(SkullPos - new Vector2(80f, 80f), 160, 160, Bluemagic.Instance.Find<ModDust>("Smoke").Type, 0f, 0f, 0, Color.Black);
                         Main.dust[dust].scale = 2.5f;
                         Main.dust[dust].noLight = true;
                     }
                 }
             }
-            if (Main.netMode != 1)
+            if (Main.netMode != NetmodeID.MultiplayerClient)
             {
                 if (Timer == 100)
                 {
@@ -1026,7 +1031,7 @@ namespace Bluemagic.BlushieBoss
                 }
                 if (Timer == 780)
                 {
-                    index[5] = NPC.NewNPC((int)SkullPos.X, (int)SkullPos.Y + 80, types[5], index[4]);
+                    index[5] = NPC.NewNPC(new EntitySource_SpawnNPC(), (int)SkullPos.X, (int)SkullPos.Y + 80, types[5], index[4]);
                     JoyceTalk("I would thank you, player, but you shall be the first thing I destroy with my newfound power.");
                 }
             }
@@ -1119,7 +1124,7 @@ namespace Bluemagic.BlushieBoss
                 AddCrystalStar(new Vector2(0.8f, -0.8f));
                 AddCrystalStar(new Vector2(-0.8f, 0.8f));
                 AddCrystalStar(new Vector2(0.8f, 0.8f));
-                if (Main.netMode != 2)
+                if (Main.netMode != NetmodeID.Server)
                 {
                     Main.NewText("Collect the stars in order to damage the two blushiemagics!");
                 }
@@ -1753,7 +1758,7 @@ namespace Bluemagic.BlushieBoss
 
             if (timer == 0)
             {
-                Main.PlaySound(4, -1, -1, 61);
+                SoundEngine.PlaySound(SoundID.NPCDeath61);
             }
             if (timer == 390)
             {
@@ -1776,7 +1781,7 @@ namespace Bluemagic.BlushieBoss
             timer -= 30;
             if (timer == 0)
             {
-                Main.PlaySound(29, -1, -1, 104);
+                SoundEngine.PlaySound(SoundID.Zombie104);
             }
             float speed = 4f + 28f * timer / 120f;
             if (speed > 32f)
@@ -1863,7 +1868,7 @@ namespace Bluemagic.BlushieBoss
             }
             if (timer == 60 || timer == 120)
             {
-                Main.PlaySound(40);
+                SoundEngine.PlaySound(SoundID.Camera);
             }
             if (timer == 120)
             {
@@ -1875,16 +1880,16 @@ namespace Bluemagic.BlushieBoss
                 int gore;
                 for (int k = 0; k < 10; k++)
                 {
-                    gore = Gore.NewGore(ArmLeftPos, Vector2.Zero, Main.rand.Next(435, 438), 2f);
+                    gore = Gore.NewGore(new EntitySource_Misc(""), ArmLeftPos, Vector2.Zero, Main.rand.Next(435, 438), 2f);
                     Main.gore[gore].velocity = 0.25f * k * (Main.rand.NextFloat() * MathHelper.TwoPi).ToRotationVector2();
-                    gore = Gore.NewGore(ArmRightPos, Vector2.Zero, Main.rand.Next(435, 438), 2f);
+                    gore = Gore.NewGore(new EntitySource_Misc(""), ArmRightPos, Vector2.Zero, Main.rand.Next(435, 438), 2f);
                     Main.gore[gore].velocity = 0.25f * k * (Main.rand.NextFloat() * MathHelper.TwoPi).ToRotationVector2();
                 }
-                Main.PlaySound(16);
+                SoundEngine.PlaySound(SoundID.DoubleJump);
             }
             if (timer == 360)
             {
-                Main.PlaySound(SoundID.DD2_WinScene);
+                SoundEngine.PlaySound(SoundID.DD2_WinScene);
             }
             if (timer > 360 && timer <= 960)
             {
@@ -1901,14 +1906,15 @@ namespace Bluemagic.BlushieBoss
             if (timer == 1200)
             {
                 BluemagicWorld.downedBlushie = true;
-                if (Main.netMode == 2)
+                if (Main.netMode == NetmodeID.Server)
                 {
                     NetMessage.SendData(MessageID.WorldData);
                 }
-                Item.NewItem((int)Origin.X, (int)Origin.Y, 0, 0, Bluemagic.Instance.ItemType("PuriumCoin"), Main.expertMode ? Main.rand.Next(48, 53) : Main.rand.Next(24, 27));
-                Item.NewItem((int)SkullPos.X, (int)SkullPos.Y, 0, 0, Bluemagic.Instance.ItemType("PuriumCoin"), Main.expertMode ? Main.rand.Next(48, 53) : Main.rand.Next(24, 27));
-                Item.NewItem((int)Origin.X, (int)Origin.Y, 0, 0, Bluemagic.Instance.ItemType("SkyDragonHeart"));
-                Item.NewItem((int)SkullPos.X, (int)SkullPos.Y, 0, 0, Bluemagic.Instance.ItemType("WorldReaver"));
+                // Todo: Port to item drop database
+                Item.NewItem(new EntitySource_Misc(""), (int)Origin.X, (int)Origin.Y, 0, 0, Bluemagic.Instance.Find<ModItem>("PuriumCoin").Type, Main.expertMode ? Main.rand.Next(48, 53) : Main.rand.Next(24, 27));
+                Item.NewItem(new EntitySource_Misc(""), (int)SkullPos.X, (int)SkullPos.Y, 0, 0, Bluemagic.Instance.Find<ModItem>("PuriumCoin").Type, Main.expertMode ? Main.rand.Next(48, 53) : Main.rand.Next(24, 27));
+                Item.NewItem(new EntitySource_Misc(""), (int)Origin.X, (int)Origin.Y, 0, 0, Bluemagic.Instance.Find<ModItem>("SkyDragonHeart").Type);
+                Item.NewItem(new EntitySource_Misc(""), (int)SkullPos.X, (int)SkullPos.Y, 0, 0, Bluemagic.Instance.Find<ModItem>("WorldReaver").Type);
                 Main.NewText(Language.GetTextValue("Announcement.HasBeenDefeated_Single", "blushiemagic"));
                 Reset();
             }
@@ -1982,20 +1988,20 @@ namespace Bluemagic.BlushieBoss
 
         private static void Music(string message)
         {
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 Main.NewText(message);
             }
             else
             {
                 NetworkText text = NetworkText.FromLiteral(message);
-                NetMessage.BroadcastChatMessage(text, Color.White);
+                ChatHelper.BroadcastChatMessage(text, Color.White);
             }
         }
 
         private static void Talk(string name, string message, byte r, byte g, byte b)
         {
-            if (Main.netMode != 2)
+            if (Main.netMode != NetmodeID.Server)
             {
                 string text = Language.GetTextValue("Mods.Bluemagic.NPCTalk", name, message);
                 Main.NewText(text, r, g, b);
@@ -2003,7 +2009,7 @@ namespace Bluemagic.BlushieBoss
             else
             {
                 NetworkText text = NetworkText.FromKey("Mods.Bluemagic.NPCTalk", name, message);
-                NetMessage.BroadcastChatMessage(text, new Color(r, g, b));
+                ChatHelper.BroadcastChatMessage(text, new Color(r, g, b));
             }
         }
 
@@ -2047,34 +2053,34 @@ namespace Bluemagic.BlushieBoss
             const int blockSize = 16;
             int centerX = (int)Origin.X;
             int centerY = (int)Origin.Y;
-            Texture2D outlineTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BlushieBlockOutline");
-            Texture2D blockTexture = Bluemagic.Instance.GetTexture("BlushieBoss/BlushieBlock");
+            Texture2D outlineTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BlushieBlockOutline").Value;
+            Texture2D blockTexture = Terraria.ModLoader.ModContent.Request<Texture2D>("Bluemagic/BlushieBoss/BlushieBlock").Value;
             for (int x = centerX - ArenaSize - blockSize / 2; x <= centerX + ArenaSize + blockSize / 2; x += blockSize)
             {
                 int y = centerY - ArenaSize - blockSize / 2;
                 Vector2 drawPos = new Vector2(x - blockSize / 2, y - blockSize / 2) - Main.screenPosition;
-                spriteBatch.Draw(outlineTexture, drawPos, Color.White);
-                spriteBatch.Draw(blockTexture, drawPos, Color.White * 0.75f);
+                Main.spriteBatch.Draw(outlineTexture, drawPos, Color.White);
+                Main.spriteBatch.Draw(blockTexture, drawPos, Color.White * 0.75f);
                 drawPos.Y += 2 * ArenaSize + blockSize;
-                spriteBatch.Draw(outlineTexture, drawPos, Color.White);
-                spriteBatch.Draw(blockTexture, drawPos, Color.White * 0.75f);
+                Main.spriteBatch.Draw(outlineTexture, drawPos, Color.White);
+                Main.spriteBatch.Draw(blockTexture, drawPos, Color.White * 0.75f);
             }
             for (int y = centerY - ArenaSize - blockSize / 2; y <= centerY + ArenaSize + blockSize / 2; y += blockSize)
             {
                 int x = centerX - ArenaSize - blockSize / 2;
                 Vector2 drawPos = new Vector2(x - blockSize / 2, y - blockSize / 2) - Main.screenPosition;
-                spriteBatch.Draw(outlineTexture, drawPos, Color.White);
-                spriteBatch.Draw(blockTexture, drawPos, Color.White * 0.75f);
+                Main.spriteBatch.Draw(outlineTexture, drawPos, Color.White);
+                Main.spriteBatch.Draw(blockTexture, drawPos, Color.White * 0.75f);
                 drawPos.X += 2 * ArenaSize + blockSize;
-                spriteBatch.Draw(outlineTexture, drawPos, Color.White);
-                spriteBatch.Draw(blockTexture, drawPos, Color.White * 0.75f);
+                Main.spriteBatch.Draw(outlineTexture, drawPos, Color.White);
+                Main.spriteBatch.Draw(blockTexture, drawPos, Color.White * 0.75f);
             }
             if (flash > 0)
             {
-                Texture2D pixel = Bluemagic.Instance.GetTexture("Pixel");
+                Texture2D pixel = ModContent.Request<Texture2D>("Bluemagic/Pixel").Value;
                 int left = centerX - ArenaSize - (int)Main.screenPosition.X;
                 int top = centerY - ArenaSize - (int)Main.screenPosition.Y;
-                spriteBatch.Draw(pixel, new Rectangle(left, top, 2 * ArenaSize, 2 * ArenaSize), Color.White * flash);
+                Main.spriteBatch.Draw(pixel, new Rectangle(left, top, 2 * ArenaSize, 2 * ArenaSize), Color.White * flash);
             }
         }
 
@@ -2082,11 +2088,11 @@ namespace Bluemagic.BlushieBoss
         {
             foreach (Bullet bullet in bullets)
             {
-                spriteBatch.Draw(bullet.Texture, bullet.Position - new Vector2(bullet.Size) - Main.screenPosition, Color.White);
+                Main.spriteBatch.Draw(bullet.Texture, bullet.Position - new Vector2(bullet.Size) - Main.screenPosition, Color.White);
             }
             foreach (Vector2 star in crystalStars)
             {
-                spriteBatch.Draw(CrystalStarTexture, star - new Vector2(32f) - Main.screenPosition, Color.White);
+                Main.spriteBatch.Draw(CrystalStarTexture, star - new Vector2(32f) - Main.screenPosition, Color.White);
             }
         }
     }
